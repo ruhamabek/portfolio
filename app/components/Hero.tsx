@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import maya from "../../public/maya.png";
 
-// Define menu items and their corresponding routes
 const menuItems = [
   { label: "About", route: "/about" },
   { label: "Projects", route: "/projects" },
@@ -17,7 +16,6 @@ export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
 
-  // Handle keyboard up/down
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown") {
@@ -39,19 +37,21 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/30 z-0" />
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-between h-full px-16">
-        {/* Left: Game-style menu */}
-        <div className="flex flex-col gap-6 mt-[-50px]">
-          <h1 className="text-4xl font-bold mb-6">Welcome to my Odyssey...</h1>
+      <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between h-full px-6 md:px-16 py-8 gap-12">
+        {/* Left: Menu */}
+        <div className="flex flex-col items-center md:items-start gap-4 mt-4 md:mt-[-50px]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center md:text-left">
+            Welcome to my Odyssey...
+          </h1>
           {menuItems.map((item, index) => (
             <div
               key={item.label}
-              className={`flex items-center gap-2 text-2xl cursor-pointer transition ${
+              className={`flex items-center gap-2 text-lg sm:text-xl md:text-2xl cursor-pointer transition ${
                 index === activeIndex ? "text-yellow-300 scale-105" : "text-white/70"
               }`}
               onClick={() => {
-                setActiveIndex(index); // ← Only change index on click
-                router.push(item.route); // ← Navigate to page
+                setActiveIndex(index);
+                router.push(item.route);
               }}
             >
               <span className="w-6">{index === activeIndex ? "➤" : ""}</span>
@@ -61,8 +61,14 @@ export default function Hero() {
         </div>
 
         {/* Right: Maya Image */}
-        <div className="mr-[-60px]">
-          <Image src={maya} alt="Maya" width={550} priority />
+        <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+          <Image
+            src={maya}
+            alt="Maya"
+            width={550}
+            className="w-full h-auto object-contain"
+            priority
+          />
         </div>
       </div>
     </section>
