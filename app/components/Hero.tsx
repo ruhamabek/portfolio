@@ -8,13 +8,21 @@ import maya from "../../public/maya.png";
 const menuItems = [
   { label: "About", route: "/about" },
   { label: "Projects", route: "/projects" },
-  { label: "Resume", route: "/resume" },
+  { label: "Resume", route: "https://drive.google.com/uc?export=download&id=1gqk83NqGhtbPujpbnoyUO64b6upwjmN0" },
   { label: "Contact", route: "/contact" },
 ];
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
+
+  const handleNavigation = (route: string) => {
+    if (route.startsWith("http")) {
+      window.open(route, "_blank");
+    } else {
+      router.push(route);
+    }
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -23,7 +31,7 @@ export default function Hero() {
       } else if (e.key === "ArrowUp") {
         setActiveIndex((prev) => (prev - 1 + menuItems.length) % menuItems.length);
       } else if (e.key === "Enter") {
-        router.push(menuItems[activeIndex].route);
+        handleNavigation(menuItems[activeIndex].route);
       }
     };
 
@@ -51,7 +59,7 @@ export default function Hero() {
               }`}
               onClick={() => {
                 setActiveIndex(index);
-                router.push(item.route);
+                handleNavigation(item.route);
               }}
             >
               <span className="w-6">{index === activeIndex ? "➤" : ""}</span>

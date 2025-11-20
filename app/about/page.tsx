@@ -22,12 +22,12 @@ export default function AboutPage() {
               .
         </h2>
        <div className="absolute top-6 left-6 z-20">
-        <button
+            <button
           onClick={() => router.push('/')}
-          className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-wider text-white hover:bg-white/20  transition backdrop-blur-md shadow-md"
+          className="flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-2 text-xs uppercase tracking-wider text-white hover:bg-white/20 transition backdrop-blur-md shadow-md group"
         >
-          <IoArrowBack />
-          
+          <IoArrowBack className="group-hover:-translate-x-1 transition-transform" />
+
         </button>
       </div>
       <About/>

@@ -38,7 +38,7 @@ export const About = () => {
         transition={{ repeat: Infinity, duration: 1.5 }}
       />
       <span className="text-xs uppercase tracking-wider text-white/50">
-        Currently exploring new frontiers of <span className="text-amber-300">Next.js</span>
+        Currently exploring new frontiers of <span className="text-amber-300">Tanstack Start</span>
       </span>
     </div>
   </motion.div>
