@@ -138,7 +138,7 @@ export default function ProjectsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-500 mb-6 tracking-tight text-center drop-shadow-lg"
+          className="text-5xl md:text-7xl font-bold text-game-dark-olive mb-6 tracking-tight text-center drop-shadow-lg"
         >
           Projects Archive
         </motion.h1>
@@ -148,7 +148,7 @@ export default function ProjectsPage() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center text-white/80 max-w-2xl mb-20 text-lg"
+          className="text-center text-game-dark-olive/70 max-w-2xl mb-20 text-lg"
         >
           A timeline of my creative and technical work, blending logic with art.
         </motion.p>
@@ -174,7 +174,7 @@ export default function ProjectsPage() {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="group relative h-[450px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900"
+              className="group relative h-[450px] rounded-lg overflow-hidden border-3 border-game-olive shadow-2xl bg-game-olive/20 hover:border-game-rust transition-all duration-200"
             >
               {/* Full Cover Image */}
               <div className="absolute inset-0 w-full h-full">
@@ -187,20 +187,20 @@ export default function ProjectsPage() {
                 />
               </div>
 
-              {/* Gradient Overlay - Always visible to ensure text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+              {/* Game Panel Overlay - Always visible to ensure text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-game-dark-olive/95 via-game-olive/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
               {/* Content Overlay */}
               <div className="absolute inset-0 flex flex-col justify-end p-8">
                 <div className="transform transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                  <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-md">
+                  <h3 className="text-3xl font-bold text-game-cream mb-2 drop-shadow-md">
                     {project.title}
                   </h3>
                   
                   {/* Description - Reveals/Expands on hover */}
                   <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
                     <div className="overflow-hidden">
-                       <p className="text-white/80 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                       <p className="text-game-cream/80 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                         {project.description}
                       </p>
                       
@@ -209,7 +209,7 @@ export default function ProjectsPage() {
                           <Link
                             href={project.demo}
                             target="_blank"
-                            className="px-4 py-2 bg-yellow-400 text-black text-xs font-bold uppercase tracking-wider rounded-full hover:bg-yellow-300 transition-colors"
+                            className="px-4 py-2 bg-game-rust border border-game-rust-dark text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-game-rust-dark transition-all hover:shadow-lg"
                           >
                             Live Demo
                           </Link>
@@ -217,7 +217,7 @@ export default function ProjectsPage() {
                         <Link
                           href={project.repo}
                           target="_blank"
-                          className="px-4 py-2 bg-white/10 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider rounded-full border border-white/20 hover:bg-white/20 transition-colors"
+                          className="px-4 py-2 bg-game-olive border-2 border-game-dark-olive text-game-cream text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-game-dark-olive transition-all hover:shadow-lg"
                         >
                           View Code
                         </Link>

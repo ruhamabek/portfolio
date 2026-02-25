@@ -61,18 +61,18 @@ export default function ContactPage() {
         </button>
       </div>
 
-      {/* Content Card */}
+      {/* Content Card - Game Menu Panel */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative z-10 bg-black/30 backdrop-blur-xl border border-white/10 p-12 rounded-3xl shadow-2xl max-w-lg w-full mx-4 text-center"
+        className="game-panel relative z-10 max-w-lg w-full mx-4 text-center"
       >
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200 drop-shadow-sm"
+          className="text-4xl md:text-5xl font-bold mb-6 text-game-dark-olive drop-shadow-sm"
         >
           Let&apos;s Connect
         </motion.h1>
@@ -81,12 +81,12 @@ export default function ContactPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="text-white/80 mb-10 text-lg leading-relaxed"
+          className="text-game-dark-olive/80 mb-10 text-lg leading-relaxed"
         >
           Whether you have a question, a project idea, or just want to say hi, I&apos;d love to hear from you.
         </motion.p>
 
-        <div className="flex justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-4">
           {socialLinks.map((link, index) => (
             <motion.a
               key={link.name}
@@ -96,10 +96,11 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1, duration: 0.4 }}
-              className={`p-4 bg-white/10 rounded-full border border-white/10 transition-all duration-300 hover:scale-110 hover:bg-white/20 ${link.color} shadow-lg group`}
+              className="px-6 py-3 bg-game-olive border-2 border-game-dark-olive text-game-cream rounded-lg font-bold uppercase tracking-wider text-xs transition-all duration-200 hover:bg-game-dark-olive hover:shadow-lg active:scale-95 flex items-center gap-2 shadow-lg group"
               aria-label={link.name}
             >
               {link.icon}
+              <span>{link.name}</span>
             </motion.a>
           ))}
         </div>
@@ -108,7 +109,7 @@ export default function ContactPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="mt-12 text-sm text-white/50"
+            className="mt-12 text-sm text-game-dark-olive/60 font-semibold"
         >
             Based in Dire Dawa, Ethiopia
         </motion.div>
