@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { IoArrowBack } from "react-icons/io5";
+import { useState, useRef } from "react";
+import { PinBoard } from "../components/PinBoard";
 
 const projects = [
   {
@@ -101,46 +103,47 @@ const projects = [
 
 export default function ProjectsPage() {
   const router = useRouter();
+  const [currentSection, setCurrentSection] = useState<'sunrise' | 'night' | 'dusty' | 'sunny'>('sunrise');
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Split projects by time of day (first 4, next 2, next 2 as placeholder)
+  const sections = {
+    sunrise: projects.slice(0, 4),
+    night: projects.slice(4, 8),
+    dusty: projects.slice(0, 2),
+    sunny: projects.slice(2, 4),
+  };
+
+  const sectionTitles = {
+    sunrise: 'Early Morning Expeditions',
+    night: 'Night Missions',
+    dusty: 'Dusty Trails',
+    sunny: 'Sunny Adventures',
+  };
 
   return (
-    <section className="relative min-h-screen text-white font-mono overflow-hidden">
-      {/* Fixed Background */}
-      <div className="fixed inset-0 z-0">
-        {/* Using a standard img tag for the gif if it's in public, or Next Image if optimized. 
-            Since it's a gif, unoptimized might be safer to ensure animation plays correctly if Next.js tries to optimize it.
-            But let's try Next Image first. If it's a local file in public, it should work.
-        */}
-        <Image
-          src="/bg-project.jpeg"
-          alt="Background"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
-
+    <section className="relative w-full min-h-screen bg-gradient-to-b from-sandy-light to-teal-bright text-dark-base overflow-x-hidden">
       {/* Back Button */}
       <div className="fixed top-6 left-6 z-50">
         <button
           onClick={() => router.push('/')}
-          className="flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-2 text-xs uppercase tracking-wider text-white hover:bg-white/20 transition backdrop-blur-md shadow-md group"
+          className="flex items-center gap-2 rounded-full border-2 border-brown-dark bg-brown-warm/30 px-4 py-2 text-xs uppercase tracking-wider text-dark-base hover:bg-brown-warm/50 transition backdrop-blur-md shadow-md group font-bold"
         >
           <IoArrowBack className="group-hover:-translate-x-1 transition-transform" />
-
+          Back
         </button>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center py-24 px-6 md:px-12">
+      <div className="relative z-10 flex flex-col items-center justify-start pt-24 px-6 md:px-12">
         {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-500 mb-6 tracking-tight text-center drop-shadow-lg"
+          className="text-5xl md:text-7xl font-bold text-dark-base mb-4 tracking-tight text-center drop-shadow-lg"
         >
-          Projects Archive
+          Mission Board
         </motion.h1>
 
         <motion.p
@@ -148,94 +151,57 @@ export default function ProjectsPage() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center text-white/80 max-w-2xl mb-20 text-lg"
+          className="text-center text-brown-dark/70 max-w-2xl mb-12 text-lg"
         >
-          A timeline of my creative and technical work, blending logic with art.
+          An adventure through my completed quests and ongoing missions
         </motion.p>
 
-        {/* Grid */}
-        <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.1 },
-            },
-          }}
-        >
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="group relative h-[450px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900"
+        {/* Time of Day Selector */}
+        <div className="flex gap-3 mb-12 flex-wrap justify-center">
+          {(['sunrise', 'night', 'dusty', 'sunny'] as const).map((section) => (
+            <button
+              key={section}
+              onClick={() => setCurrentSection(section)}
+              className={`px-6 py-2 rounded-lg font-bold uppercase tracking-wider transition-all duration-300 border-2 ${
+                currentSection === section
+                  ? 'adventure-btn-primary'
+                  : 'adventure-btn opacity-60 hover:opacity-100'
+              }`}
             >
-              {/* Full Cover Image */}
-              <div className="absolute inset-0 w-full h-full">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              
-                />
-              </div>
-
-              {/* Gradient Overlay - Always visible to ensure text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-
-              {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8">
-                <div className="transform transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                  <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-md">
-                    {project.title}
-                  </h3>
-                  
-                  {/* Description - Reveals/Expands on hover */}
-                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
-                    <div className="overflow-hidden">
-                       <p className="text-white/80 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                        {project.demo && (
-                          <Link
-                            href={project.demo}
-                            target="_blank"
-                            className="px-4 py-2 bg-yellow-400 text-black text-xs font-bold uppercase tracking-wider rounded-full hover:bg-yellow-300 transition-colors"
-                          >
-                            Live Demo
-                          </Link>
-                        )}
-                        <Link
-                          href={project.repo}
-                          target="_blank"
-                          className="px-4 py-2 bg-white/10 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider rounded-full border border-white/20 hover:bg-white/20 transition-colors"
-                        >
-                          View Code
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Initial state hint (optional, maybe just the title is enough) */}
-                  {/* We can keep the description hidden or show a truncated version. 
-                      The user asked for "cooler", so the reveal effect is good. 
-                      But if the user wants to see what it is at a glance, maybe a short subtitle?
-                      Let's stick to the reveal for maximum "cool" and clean look.
-                  */}
-                </div>
-              </div>
-            </motion.div>
+              {section === 'sunrise' && '🌅 Sunrise'}
+              {section === 'night' && '🌙 Night'}
+              {section === 'dusty' && '🌪️ Dusty'}
+              {section === 'sunny' && '☀️ Sunny'}
+            </button>
           ))}
+        </div>
+
+        {/* Pin Board Section */}
+        <motion.div
+          key={currentSection}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-6xl"
+        >
+          <div className="mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-dark-base text-center">
+              {sectionTitles[currentSection]}
+            </h2>
+          </div>
+          <PinBoard projects={sections[currentSection]} theme={currentSection} />
         </motion.div>
+
+        {/* Scroll Hint */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="text-center text-brown-dark/60 mt-12 text-sm italic"
+        >
+          Switch between time periods to explore all my adventures
+        </motion.p>
       </div>
     </section>
   );

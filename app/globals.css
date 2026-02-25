@@ -14,6 +14,34 @@
   --color-orange: #cc6033;
   --color-sand: #d6995c;
   --color-coral: #ea4884;
+  /* Alto Odyssey Primary Colors */
+  --color-sandy-light: #E8D4B8;
+  --color-sandy-dark: #D4C5A9;
+  --color-teal-bright: #7DD3C0;
+  --color-teal-muted: #6BC5B3;
+  --color-brown-warm: #8B6F47;
+  --color-brown-dark: #704F2A;
+  --color-dark-base: #3E342A;
+  --color-dark-deeper: #2D241C;
+  --color-rust: #C8704A;
+  --color-rust-dark: #B85F3F;
+  
+  /* Time-of-Day Themes */
+  --color-sunrise-orange: #FFA500;
+  --color-sunrise-peach: #FFB84D;
+  --color-sunrise-gold: #F4D35E;
+  
+  --color-night-purple: #2D1B4E;
+  --color-night-blue: #1a1a2e;
+  --color-night-silver: #E8E8E8;
+  
+  --color-dusty-brown: #B8977F;
+  --color-dusty-rose: #A67C7C;
+  --color-dusty-beige: #D4C5A9;
+  
+  --color-sunny-yellow: #F4D35E;
+  --color-sunny-blue: #87CEEB;
+  --color-sunny-green: #90EE90;
   --animate-orbit: orbit 50s linear infinite;
   @keyframes orbit {
     0% {
@@ -135,5 +163,86 @@ body {
 
 .field-input-focus {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
+}
+
+/* Alto Odyssey Adventure Game Components */
+
+/* Quest Log Cards */
+.quest-card {
+  @apply relative p-6 rounded-lg border-2 border-brown-warm bg-gradient-to-br from-sandy-light/40 to-sandy-dark/20 backdrop-blur-sm shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-rust hover:shadow-xl;
+}
+
+/* Pin Board Styling */
+.pin-board {
+  @apply relative w-full bg-gradient-to-br from-sandy-dark via-brown-warm to-brown-dark rounded-lg border-8 border-brown-dark shadow-2xl;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px);
+}
+
+.pinned-item {
+  @apply relative group cursor-grab active:cursor-grabbing transition-all duration-200 hover:scale-105;
+}
+
+.pin {
+  @apply absolute -top-3 -left-3 w-6 h-6 rounded-full bg-rust shadow-lg border-2 border-rust-dark group-hover:scale-110 transition-transform duration-200;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Time-of-Day Sections */
+.section-sunrise {
+  @apply bg-gradient-to-b from-sunrise-gold via-sunrise-peach to-sandy-light;
+}
+
+.section-night {
+  @apply bg-gradient-to-b from-night-blue via-night-purple to-dark-deeper;
+}
+
+.section-dusty {
+  @apply bg-gradient-to-b from-dusty-beige via-dusty-brown to-dusty-rose;
+}
+
+.section-sunny {
+  @apply bg-gradient-to-b from-sunny-blue via-sunny-yellow to-sunny-green;
+}
+
+/* Parallax Layers */
+.parallax-container {
+  @apply relative overflow-hidden;
+}
+
+.parallax-layer {
+  @apply absolute w-full transition-transform duration-300 ease-out;
+}
+
+/* Adventure Game Buttons */
+.adventure-btn {
+  @apply px-6 py-3 rounded-lg bg-brown-warm border-2 border-brown-dark text-sandy-light font-bold uppercase tracking-wider transition-all duration-200 hover:bg-rust hover:border-rust-dark hover:shadow-lg hover:-translate-y-1 active:scale-95;
+}
+
+.adventure-btn-primary {
+  @apply px-6 py-3 rounded-lg bg-rust border-2 border-rust-dark text-sandy-light font-bold uppercase tracking-wider transition-all duration-200 hover:bg-rust-dark hover:shadow-lg hover:-translate-y-1 active:scale-95;
+}
+
+/* Threading Effect */
+.thread-line {
+  @apply stroke-rust stroke-1 opacity-70;
+}
+
+/* Game HUD Panel */
+.hud-panel {
+  @apply relative p-8 rounded-lg border-4 border-brown-dark bg-gradient-to-br from-brown-warm/80 to-brown-dark/80 backdrop-blur-md shadow-2xl;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,.03) 2px,
+    rgba(255,255,255,.03) 4px
+  );
+}
+
+/* Achievement/Collectible Display */
+.achievement-icon {
+  @apply relative w-16 h-16 rounded-full bg-gradient-to-br from-sandy-light to-sandy-dark border-2 border-rust shadow-lg flex items-center justify-center text-2xl transition-all duration-200 hover:scale-110 hover:shadow-xl;
 }
 
