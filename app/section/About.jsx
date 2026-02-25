@@ -43,11 +43,6 @@ export const About = () => {
     </div>
   </motion.div>
 </div>
-  </motion.div>
-
-  <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-amber-500/10" />
-</div>
-
 
         {/* Grid 2 */}
         <div className="game-card-dark grid-2">
