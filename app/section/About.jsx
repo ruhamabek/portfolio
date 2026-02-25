@@ -14,18 +14,18 @@ export const About = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         {/* Grid 1 */}
  
-<div className="game-card grid-1">
+<div className="quest-card grid-1">
   <motion.div
     className="z-10"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 1 }}
   >
-    <h1 className="text-2xl md:text-3xl font-semibold game-text-primary mb-2">
-      Hi, I'm <span className="text-game-yellow">Ruhama Bekele</span>
+    <h1 className="text-2xl md:text-3xl font-semibold text-dark-base mb-2">
+      Hi, I'm <span className="text-rust">Ruhama Bekele</span>
     </h1>
 
-    <p className="text-sm md:text-base text-game-text-muted/90 leading-relaxed">
+    <p className="text-sm md:text-base text-brown-dark/80 leading-relaxed">
       In this digital odyssey, I wander through lines of code, 
       turning ideas into experiences,  
       and crafting smooth journeys on the web. Discovering new adventures by the day. :)
@@ -34,23 +34,23 @@ export const About = () => {
 
     <div className="flex items-center gap-3 mt-6">
       <motion.div
-        className="w-2 h-2 rounded-full bg-game-yellow animate-pulse"
+        className="w-2 h-2 rounded-full bg-rust animate-pulse"
         transition={{ repeat: Infinity, duration: 1.5 }}
       />
-      <span className="text-xs uppercase tracking-wider text-game-text-muted/70">
-        Currently exploring new frontiers of <span className="text-game-yellow font-bold">Tanstack Start</span>
+      <span className="text-xs uppercase tracking-wider text-brown-dark/70">
+        Currently exploring new frontiers of <span className="text-rust font-bold">Tanstack Start</span>
       </span>
     </div>
   </motion.div>
 </div>
 
         {/* Grid 2 */}
-        <div className="game-card-dark grid-2">
+        <div className="quest-card grid-2 bg-gradient-to-br from-sandy-dark/50 to-brown-warm/30">
           <div
             ref={grid2Container}
             className="flex items-center justify-center w-full h-full"
           >
-            <p className="flex items-end text-xl text-game-cream/70">
+            <p className="flex items-end text-xl text-dark-base/70">
                Drag the icons
             </p>
 
@@ -87,10 +87,10 @@ export const About = () => {
           </div>
         </div>
         {/* Grid 3 */}
-        <div className="game-card grid-3">
+        <div className="quest-card grid-3">
           <div className="z-10 w-[50%]">
-            <p className="headtext game-text-primary">Time Zone</p>
-            <p className="subtext text-game-text-muted/80">
+            <p className="headtext text-dark-base">Time Zone</p>
+            <p className="subtext text-brown-dark/70">
               I'm based in Ethiopia, and open to  work worldwide
             </p>
           </div>
@@ -99,19 +99,19 @@ export const About = () => {
           </figure>
         </div>
         {/* Grid 4 */}
-        <div className="game-panel grid-4">
+        <div className="hud-panel grid-4">
           <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext text-game-cream">
+            <p className="text-center headtext text-sandy-light">
               Do you want to start a project together?
             </p>
             <CopyEmailButton />
           </div>
         </div>
         {/* Grid 5 */}
-        <div className="game-card grid-5">
+        <div className="quest-card grid-5">
           <div className="z-10 w-[50%]">
-            <p className="headtext game-text-primary">Tech Stack</p>
-            <p className="subtext text-game-text-muted/80">
+            <p className="headtext text-dark-base">Tech Stack</p>
+            <p className="subtext text-brown-dark/70">
              I use modern tech to build scalable software.
             </p>
           </div>
