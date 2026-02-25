@@ -72,7 +72,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold mb-6 text-game-dark-olive drop-shadow-sm"
+          className="text-4xl md:text-5xl font-bold mb-6 text-game-cream drop-shadow-sm"
         >
           Let&apos;s Connect
         </motion.h1>
@@ -81,7 +81,7 @@ export default function ContactPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="text-game-dark-olive/80 mb-10 text-lg leading-relaxed"
+          className="text-game-text-muted/90 mb-10 text-lg leading-relaxed"
         >
           Whether you have a question, a project idea, or just want to say hi, I&apos;d love to hear from you.
         </motion.p>
@@ -96,7 +96,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1, duration: 0.4 }}
-              className="px-6 py-3 bg-game-olive border-2 border-game-dark-olive text-game-cream rounded-lg font-bold uppercase tracking-wider text-xs transition-all duration-200 hover:bg-game-dark-olive hover:shadow-lg active:scale-95 flex items-center gap-2 shadow-lg group"
+              className="px-6 py-3 bg-game-brown border-2 border-game-brown text-game-cream rounded-lg font-bold uppercase tracking-wider text-xs transition-all duration-200 hover:bg-game-brown hover:border-game-yellow hover:text-game-yellow hover:shadow-lg active:scale-95 flex items-center gap-2 shadow-lg group"
               aria-label={link.name}
             >
               {link.icon}
@@ -109,7 +109,7 @@ export default function ContactPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="mt-12 text-sm text-game-dark-olive/60 font-semibold"
+            className="mt-12 text-sm text-game-text-muted/70 font-semibold"
         >
             Based in Dire Dawa, Ethiopia
         </motion.div>

@@ -14,12 +14,12 @@
   --color-orange: #cc6033;
   --color-sand: #d6995c;
   --color-coral: #ea4884;
-  --color-game-teal: #7DD3C0;
-  --color-game-olive: #4A5859;
-  --color-game-dark-olive: #3D5646;
-  --color-game-cream: #F0EDE5;
-  --color-game-rust: #D97B3A;
-  --color-game-rust-dark: #C85A2F;
+  --color-game-dark-bg: #1a1410;
+  --color-game-brown: #2d2420;
+  --color-game-yellow: #fcd34d;
+  --color-game-yellow-dark: #f59e0b;
+  --color-game-cream: #f5f1e8;
+  --color-game-text-muted: #b8b3a8;
   --animate-orbit: orbit 50s linear infinite;
   @keyframes orbit {
     0% {
@@ -143,40 +143,40 @@ body {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
 }
 
-/* Game-Themed UI Components */
+/* Game-Themed UI Components - Landing Page Colors */
 .game-card {
-  @apply relative p-6 rounded-lg border-2 border-game-olive bg-game-teal/20 backdrop-blur-sm shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-game-rust hover:bg-game-teal/30;
+  @apply relative p-6 rounded-lg border-2 border-game-brown bg-game-dark-bg/60 backdrop-blur-sm shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-game-yellow hover:bg-game-brown/40;
 }
 
 .game-card-dark {
-  @apply relative p-6 rounded-lg border-2 border-game-olive bg-game-olive/30 backdrop-blur-sm shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-game-rust;
+  @apply relative p-6 rounded-lg border-2 border-game-brown bg-game-brown/50 backdrop-blur-sm shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-game-yellow;
 }
 
 .game-panel {
-  @apply p-8 rounded-xl border-3 border-game-olive bg-gradient-to-b from-game-teal/40 to-game-olive/30 backdrop-blur-md shadow-xl;
+  @apply p-8 rounded-xl border-2 border-game-brown bg-gradient-to-b from-game-dark-bg/80 to-game-brown/60 backdrop-blur-md shadow-xl;
 }
 
 .game-btn {
-  @apply px-6 py-3 rounded-lg bg-game-olive border-2 border-game-dark-olive text-game-cream font-bold uppercase tracking-wider transition-all duration-200 hover:bg-game-dark-olive hover:shadow-lg active:scale-95;
+  @apply px-6 py-3 rounded-lg bg-game-brown border-2 border-game-brown text-game-cream font-bold uppercase tracking-wider transition-all duration-200 hover:bg-game-brown hover:border-game-yellow hover:text-game-yellow hover:shadow-lg active:scale-95;
 }
 
 .game-btn-primary {
-  @apply px-6 py-3 rounded-lg bg-game-rust border-2 border-game-rust-dark text-white font-bold uppercase tracking-wider transition-all duration-200 hover:bg-game-rust-dark hover:shadow-lg active:scale-95;
+  @apply px-6 py-3 rounded-lg bg-game-yellow border-2 border-game-yellow-dark text-game-dark-bg font-bold uppercase tracking-wider transition-all duration-200 hover:bg-game-yellow-dark hover:shadow-lg active:scale-95;
 }
 
 .game-btn-secondary {
-  @apply px-6 py-3 rounded-lg bg-game-cream border-2 border-game-rust text-game-dark-olive font-bold uppercase tracking-wider transition-all duration-200 hover:bg-white hover:shadow-lg active:scale-95;
+  @apply px-6 py-3 rounded-lg bg-game-cream border-2 border-game-yellow text-game-dark-bg font-bold uppercase tracking-wider transition-all duration-200 hover:bg-white hover:shadow-lg active:scale-95;
 }
 
 .game-text-primary {
-  @apply text-game-dark-olive;
+  @apply text-game-cream;
 }
 
 .game-text-secondary {
-  @apply text-game-olive;
+  @apply text-game-text-muted;
 }
 
 .game-text-accent {
-  @apply text-game-rust;
+  @apply text-game-yellow;
 }
 

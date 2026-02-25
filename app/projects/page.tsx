@@ -138,7 +138,7 @@ export default function ProjectsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-bold text-game-dark-olive mb-6 tracking-tight text-center drop-shadow-lg"
+          className="text-5xl md:text-7xl font-bold text-game-cream mb-6 tracking-tight text-center drop-shadow-lg"
         >
           Projects Archive
         </motion.h1>
@@ -148,7 +148,7 @@ export default function ProjectsPage() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center text-game-dark-olive/70 max-w-2xl mb-20 text-lg"
+          className="text-center text-game-text-muted/80 max-w-2xl mb-20 text-lg"
         >
           A timeline of my creative and technical work, blending logic with art.
         </motion.p>
@@ -174,7 +174,7 @@ export default function ProjectsPage() {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="group relative h-[450px] rounded-lg overflow-hidden border-3 border-game-olive shadow-2xl bg-game-olive/20 hover:border-game-rust transition-all duration-200"
+              className="group relative h-[450px] rounded-lg overflow-hidden border-2 border-game-brown shadow-2xl bg-game-brown/20 hover:border-game-yellow transition-all duration-200"
             >
               {/* Full Cover Image */}
               <div className="absolute inset-0 w-full h-full">
@@ -188,7 +188,7 @@ export default function ProjectsPage() {
               </div>
 
               {/* Game Panel Overlay - Always visible to ensure text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-game-dark-olive/95 via-game-olive/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-game-dark-bg/95 via-game-brown/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
               {/* Content Overlay */}
               <div className="absolute inset-0 flex flex-col justify-end p-8">
@@ -209,7 +209,7 @@ export default function ProjectsPage() {
                           <Link
                             href={project.demo}
                             target="_blank"
-                            className="px-4 py-2 bg-game-rust border border-game-rust-dark text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-game-rust-dark transition-all hover:shadow-lg"
+                            className="px-4 py-2 bg-game-yellow border border-game-yellow-dark text-game-dark-bg text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-game-yellow-dark transition-all hover:shadow-lg"
                           >
                             Live Demo
                           </Link>
@@ -217,7 +217,7 @@ export default function ProjectsPage() {
                         <Link
                           href={project.repo}
                           target="_blank"
-                          className="px-4 py-2 bg-game-olive border-2 border-game-dark-olive text-game-cream text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-game-dark-olive transition-all hover:shadow-lg"
+                          className="px-4 py-2 bg-game-brown border-2 border-game-brown text-game-cream text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-game-brown hover:border-game-yellow hover:text-game-yellow transition-all hover:shadow-lg"
                         >
                           View Code
                         </Link>

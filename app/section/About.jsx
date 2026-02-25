@@ -22,10 +22,10 @@ export const About = () => {
     transition={{ duration: 1 }}
   >
     <h1 className="text-2xl md:text-3xl font-semibold game-text-primary mb-2">
-      Hi, I'm <span className="text-game-rust">Ruhama Bekele</span>
+      Hi, I'm <span className="text-game-yellow">Ruhama Bekele</span>
     </h1>
 
-    <p className="text-sm md:text-base text-game-dark-olive/80 leading-relaxed">
+    <p className="text-sm md:text-base text-game-text-muted/90 leading-relaxed">
       In this digital odyssey, I wander through lines of code, 
       turning ideas into experiences,  
       and crafting smooth journeys on the web. Discovering new adventures by the day. :)
@@ -34,11 +34,11 @@ export const About = () => {
 
     <div className="flex items-center gap-3 mt-6">
       <motion.div
-        className="w-2 h-2 rounded-full bg-game-rust animate-pulse"
+        className="w-2 h-2 rounded-full bg-game-yellow animate-pulse"
         transition={{ repeat: Infinity, duration: 1.5 }}
       />
-      <span className="text-xs uppercase tracking-wider text-game-dark-olive/60">
-        Currently exploring new frontiers of <span className="text-game-rust font-bold">Tanstack Start</span>
+      <span className="text-xs uppercase tracking-wider text-game-text-muted/70">
+        Currently exploring new frontiers of <span className="text-game-yellow font-bold">Tanstack Start</span>
       </span>
     </div>
   </motion.div>
@@ -90,7 +90,7 @@ export const About = () => {
         <div className="game-card grid-3">
           <div className="z-10 w-[50%]">
             <p className="headtext game-text-primary">Time Zone</p>
-            <p className="subtext text-game-dark-olive/70">
+            <p className="subtext text-game-text-muted/80">
               I'm based in Ethiopia, and open to  work worldwide
             </p>
           </div>
@@ -101,7 +101,7 @@ export const About = () => {
         {/* Grid 4 */}
         <div className="game-panel grid-4">
           <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext text-game-dark-olive">
+            <p className="text-center headtext text-game-cream">
               Do you want to start a project together?
             </p>
             <CopyEmailButton />
@@ -111,7 +111,7 @@ export const About = () => {
         <div className="game-card grid-5">
           <div className="z-10 w-[50%]">
             <p className="headtext game-text-primary">Tech Stack</p>
-            <p className="subtext text-game-dark-olive/70">
+            <p className="subtext text-game-text-muted/80">
              I use modern tech to build scalable software.
             </p>
           </div>
