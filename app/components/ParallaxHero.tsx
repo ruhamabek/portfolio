@@ -22,10 +22,13 @@ export function ParallaxHero() {
   return (
     <div
       ref={containerRef}
-      className="parallax-container relative w-full h-96 md:h-screen overflow-hidden bg-gradient-to-b from-sunrise-gold via-sandy-light to-teal-bright"
+      className="parallax-container relative w-full h-[500px] md:h-screen overflow-hidden bg-gradient-to-b from-sunrise-gold via-sandy-light to-brown-dark"
     >
       {/* Sky background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-100 to-sandy-light opacity-60" />
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-90"
+        style={{ backgroundImage: 'url("/aboutbg.jpeg")' }}
+      />
 
       {/* Far mountains - slow parallax */}
       <div
@@ -57,7 +60,7 @@ export function ParallaxHero() {
           transform: `translateY(${scrollY * 0.1}px)`,
           bottom: 0,
           height: '40%',
-          background: 'url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 200%22%3E%3Cellipse cx=%22200%22 cy=%22100%22 rx=%2240%22 ry=%2280%22 fill=%22%23704F2A%22/%3E%3Cpath d=%22M180,100 L220,100 L220,150 Q200,160 180,150 Z%22 fill=%22%235a3a1a%22/%3E%3Cellipse cx=%22900%22 cy=%22120%22 rx=%2250%22 ry=%22100%22 fill=%22%23704F2A%22/%3E%3Cpath d=%22M870,120 L930,120 L930,180 Q900,195 870,180 Z%22 fill=%22%235a3a1a%22/%3E%3Crect x=%220%22 y=%22150%22 width=%221200%22 height=%2250%22 fill=%22%23D4C5A9%22/%3E%3C/svg%3E") repeat-x",
+          background: 'url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 200%22%3E%3Cellipse cx=%22200%22 cy=%22100%22 rx=%2240%22 ry=%2280%22 fill=%22%23704F2A%22/%3E%3Cpath d=%22M180,100 L220,100 L220,150 Q200,160 180,150 Z%22 fill=%22%235a3a1a%22/%3E%3Cellipse cx=%22900%22 cy=%22120%22 rx=%2250%22 ry=%22100%22 fill=%22%23704F2A%22/%3E%3Cpath d=%22M870,120 L930,120 L930,180 Q900,195 870,180 Z%22 fill=%22%235a3a1a%22/%3E%3Crect x=%220%22 y=%22150%22 width=%221200%22 height=%2250%22 fill=%22%23D4C5A9%22/%3E%3C/svg%3E") repeat-x',
           backgroundPosition: `0 ${scrollY * 0.1}px`,
         }}
       />

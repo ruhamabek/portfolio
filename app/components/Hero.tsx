@@ -40,7 +40,7 @@ export default function Hero() {
   }, [activeIndex, router]);
 
   return (
-    <section className="relative w-full h-screen bg-[url('/alto.gif')] bg-cover bg-center overflow-hidden text-white font-mono">
+    <section className="relative w-full h-screen bg-[url('/alto.gif')] bg-cover bg-center overflow-hidden text-white">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 z-0" />
 
@@ -54,9 +54,8 @@ export default function Hero() {
           {menuItems.map((item, index) => (
             <div
               key={item.label}
-              className={`flex items-center gap-2 text-lg sm:text-xl md:text-2xl cursor-pointer transition ${
-                index === activeIndex ? "text-yellow-300 scale-105" : "text-white/70"
-              }`}
+              className={`flex items-center gap-2 text-lg sm:text-xl md:text-2xl cursor-pointer transition ${index === activeIndex ? "text-yellow-300 scale-105" : "text-white/70"
+                }`}
               onClick={() => {
                 setActiveIndex(index);
                 handleNavigation(item.route);

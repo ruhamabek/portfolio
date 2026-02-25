@@ -1,0 +1,23 @@
+$ next dev --turbopack --turbopack
+ ⚠ Port 3000 is in use by an unknown process, using available port 3002 instead.
+   ▲ Next.js 15.4.10 (Turbopack)
+   - Local:        http://localhost:3002
+   - Network:      http://10.14.249.134:3002
+
+ ✓ Starting...
+ ✓ Ready in 4.4s
+ ○ Compiling / ...
+Error: Cannot apply unknown utility class `group`
+    [2m[at onInvalidCandidate (/home/ruhama/portfolio/node_modules/tailwindcss/dist/lib.js:18:1509)][0m
+    [2m[at ge (/home/ruhama/portfolio/node_modules/tailwindcss/dist/lib.js:13:29503)][0m
+    [2m[at /home/ruhama/portfolio/node_modules/tailwindcss/dist/lib.js:18:373][0m
+    [2m[at I (/home/ruhama/portfolio/node_modules/tailwindcss/dist/lib.js:3:1656)][0m
+    [2m[at je (/home/ruhama/portfolio/node_modules/tailwindcss/dist/lib.js:18:172)][0m
+    [2m[at bi (/home/ruhama/portfolio/node_modules/tailwindcss/dist/lib.js:35:780)][0m
+    [2m[at async yi (/home/ruhama/portfolio/node_modules/tailwindcss/dist/lib.js:35:1123)][0m
+    [2m[at async _r (/home/ruhama/portfolio/node_modules/@tailwindcss/node/dist/index.js:10:3384)][0m
+    [2m[at async p (/home/ruhama/portfolio/node_modules/@tailwindcss/postcss/dist/index.js:10:4019)][0m
+    [2m[at async Object.Once (/home/ruhama/portfolio/node_modules/@tailwindcss/postcss/dist/index.js:10:4290)][0m
+ ✓ Compiled / in 13.8s
+ GET / 200 in 15422ms
+error: script "dev" was terminated by signal SIGHUP (Terminal hung up)
