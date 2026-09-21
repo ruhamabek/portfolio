@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { IoArrowBack } from "react-icons/io5";
 import { FaGithub, FaLinkedin, FaTelegram, FaTwitter, FaEnvelope } from "react-icons/fa";
-import { MapPin, Clock, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function ContactPage() {
   const router = useRouter();

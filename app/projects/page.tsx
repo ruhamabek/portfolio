@@ -6,8 +6,17 @@ import { Sun, Wind, Snowflake, Moon } from "lucide-react";
 import { useState } from "react";
 import { PinBoard } from "../components/PinBoard";
 
+type ProjectEntry = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  demo: string | null;
+  repo: string;
+};
+
 /* ─── Project Data ─── */
-const flow = {
+const flow: ProjectEntry = {
   id: 1,
   title: "Flow",
   description: "An AI-powered automated drag-and-drop web scraping tool.",
@@ -15,92 +24,85 @@ const flow = {
   demo: "https://flow-chi-drab.vercel.app/",
   repo: "https://github.com/ruhamabek/flow",
 };
-const skillswap = {
+const skillswap: ProjectEntry = {
   id: 2,
-  title: "SkillSwap",
-  description: "An AI-powered skill sharing platform empowering learners to grow together.",
-  image: "/assets/projects/SkillSwap.png",
-  demo: null,
-  repo: "https://github.com/ruhamabek/SkillSwap",
+  title: "Docklet",
+  description: "A lightweight desktop docker client.",
+  image: "/assets/projects/docklet.png",
+  demo: "https://docklet-ochre.vercel.app",
+  repo: "https://github.com/ruhamabek/Docklet",
 };
-const dbstudio = {
+const dbstudio: ProjectEntry = {
   id: 11,
   title: "DBStudio",
   description: "A modern AI-powered database workspace for seamless data management.",
   image: "/assets/projects/dbstudio.png",
-  demo: "https://dbstudio.tech",
-  repo: null as string | null,
+  demo: "https://dbstudio-lite.vercel.app/",
+  repo: "https://github.com/ruhamabek/dbstudio-lite",
 };
-const foodOrdering = {
+const foodOrdering: ProjectEntry = {
   id: 3,
-  title: "Food Ordering Platform",
-  description: "A full-stack food ordering platform built using the MERN stack.",
+  title: "Vortex",
+  description: "Cloud-Native Distributed Video Infrastructure Engine.",
+  image: "/assets/projects/vortex.png",
+  demo: null,
+  repo: "https://github.com/ruhamabek/vortex",
+};
+const kidcare: ProjectEntry = {
+  id: 5,
+  title: "Hooklet",
+  description: "A self-hosted webhook capturing and replay engine.",
+  image: "/assets/projects/hooklet.png",
+  demo: null,
+  repo: "https://github.com/ruhamabek/Hooklet",
+};
+const simushop: ProjectEntry = {
+  id: 6,
+  title: "Git-ts",
+  description: "Git clone in typescript.",
+  image: "/assets/projects/git.png",
+  demo: null,
+  repo: "https://github.com/ruhamabek/git-ts",
+};
+const alx: ProjectEntry = {
+  id: 4,
+  title: "Food ordering",
+  description: "A MERN stack food ordering platform.",
   image: "/assets/projects/Food.png",
   demo: null,
   repo: "https://github.com/ruhamabek/Food-ordering",
 };
-const kidcare = {
-  id: 5,
-  title: "KidCare Hub",
-  description: "A platform for parents to order tutors, drivers, and nannies.",
-  image: "/assets/projects/kidcare.png",
-  demo: null,
-  repo: "https://github.com/ruhamabek/colorful-playground-home",
-};
-const simushop = {
-  id: 6,
+const gymForge: ProjectEntry = {
+  id: 7,
   title: "SimuShop",
-  description: "A React Native e-commerce application featuring 3D and AR capabilities.",
+  description: "A React Native AR powered e-commerce app.",
   image: "/assets/projects/SimuShop.png",
   demo: null,
   repo: "https://github.com/ruhamabek/SimuShop",
 };
-const alx = {
-  id: 4,
-  title: "ALX Platform Clone",
-  description: "A clone of the ALX learning platform.",
-  image: "/assets/projects/alx.png",
-  demo: null,
-  repo: "https://github.com/ruhamabek/alx-clone",
-};
-const gymForge = {
-  id: 7,
-  title: "Gym Forge",
-  description: "A landing page for the Gym Forge fitness center.",
-  image: "/assets/projects/GymForge.png",
-  demo: "https://gym-forge-nu.vercel.app/",
-  repo: "https://github.com/ruhamabek/gym-forge",
-};
-const bajaj = {
+const bajaj: ProjectEntry = {
   id: 8,
-  title: "Bajaj SafeRide",
-  description: "A MERN stack application for booking Bajaj rides.",
-  image: "/assets/projects/Bajaj.png",
+  title: "SkillSwap",
+  description: "An AI powered skill sharing platform.",
+  image: "/assets/projects/SkillSwap.png",
   demo: null,
   repo: "https://github.com/ruhamabek/Bajaj-safe-ride",
 };
-const vaxilink = {
+const vaxilink: ProjectEntry = {
   id: 9,
-  title: "Vaxilink",
-  description: "A React Native application for vaccination awareness and tracking.",
-  image: "/assets/projects/VaxiLink.png",
-  demo: null,
-  repo: "https://github.com/ruhamabek/VaxiLink",
+  title: "Gym Forge", 
+  description: "A landing page for the Gym Forge fitness center.",
+  image: "/assets/projects/GymForge.png",
+  demo: "https://gym-forge-nu.vercel.app/", 
+  repo: "https://github.com/ruhamabek/gym-forge",
 };
-const amazon = {
-  id: 10,
-  title: "Amazon Clone",
-  description: "A clone of Amazon built with JavaScript, HTML, and CSS.",
-  image: "/assets/projects/amazon.png",
-  demo: null,
-  repo: "https://github.com/ruhamabek/javascript-amazon-project",
-};
+ 
 
 /* ─── Biome Project Assignments ─── */
-const sunriseProjects = [flow, skillswap, dbstudio];
-const dustyProjects = [foodOrdering, kidcare, simushop];
-const snowyProjects = [alx, gymForge, bajaj];
-const nightProjects = [vaxilink];
+const sunriseProjects: ProjectEntry[] = [flow, skillswap, dbstudio];
+const dustyProjects: ProjectEntry[] = [foodOrdering, kidcare, simushop];
+const snowyProjects: ProjectEntry[] = [alx, gymForge, bajaj];
+const nightProjects: ProjectEntry[] = [vaxilink];
 
 /* ─── Biome Config ─── */
 type BiomeKey = "sunrise" | "dusty" | "snowy" | "night";
@@ -188,7 +190,6 @@ export default function ProjectsPage() {
   const router = useRouter();
   const [currentBiome, setCurrentBiome] = useState<BiomeKey>("sunrise");
   const biome = biomeConfigs[currentBiome];
-  const BiomeIcon = biome.icon;
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden">

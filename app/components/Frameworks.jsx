@@ -17,6 +17,7 @@ export function Frameworks() {
     "tailwindcss",
     "vitejs",
     "mongo-svgrepo-com",
+    "go"
   ];
   return (
     <div className="relative flex h-[15rem] w-full flex-col items-center justify-center">

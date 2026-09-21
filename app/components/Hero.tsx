@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import maya from "../../public/maya.png";
 
 const menuItems = [
   { label: "About", route: "/about" },
   { label: "Projects", route: "/projects" },
-  { label: "Resume", route: "https://drive.google.com/file/d/1rX7zyzoqAGm1aqgY5-mVmbnM8s9tjyAm/view?usp=sharing" },
+  { label: "Resume", route: "https://drive.google.com/file/d/18BHBNqn-fjilZcuHM7Obgm74d7OW58ZP/view?usp=sharing" },
   { label: "Contact", route: "/contact" },
 ];
 
@@ -16,13 +16,13 @@ export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
 
-  const handleNavigation = (route: string) => {
+  const handleNavigation = useCallback((route: string) => {
     if (route.startsWith("http")) {
       window.open(route, "_blank");
     } else {
       router.push(route);
     }
-  };
+  }, [router]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -37,7 +37,7 @@ export default function Hero() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeIndex, router]);
+  }, [activeIndex, handleNavigation]);
 
   return (
     <section className="relative w-full h-screen bg-[url('/alto.gif')] bg-cover bg-center overflow-hidden text-white">
