@@ -12,7 +12,7 @@ type ProjectEntry = {
   description: string;
   image: string;
   demo: string | null;
-  repo: string;
+  repo: string | null;
 };
 
 /* ─── Project Data ─── */
@@ -39,6 +39,14 @@ const dbstudio: ProjectEntry = {
   image: "/assets/projects/dbstudio.png",
   demo: "https://dbstudio-lite.vercel.app/",
   repo: "https://github.com/ruhamabek/dbstudio-lite",
+};
+const vitra: ProjectEntry = {
+  id: 12,
+  title: "Vitra",
+  description: "The Design Runtime For Agents",
+  image: "/assets/projects/vitra.png",
+  demo: "https://vitra-ten.vercel.app",
+  repo:  "https://github.com/ruhamabek/vitra",
 };
 const foodOrdering: ProjectEntry = {
   id: 3,
@@ -99,7 +107,7 @@ const vaxilink: ProjectEntry = {
  
 
 /* ─── Biome Project Assignments ─── */
-const sunriseProjects: ProjectEntry[] = [flow, skillswap, dbstudio];
+const sunriseProjects: ProjectEntry[] = [flow, skillswap, dbstudio, vitra];
 const dustyProjects: ProjectEntry[] = [foodOrdering, kidcare, simushop];
 const snowyProjects: ProjectEntry[] = [alx, gymForge, bajaj];
 const nightProjects: ProjectEntry[] = [vaxilink];

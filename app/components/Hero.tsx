@@ -8,7 +8,7 @@ import maya from "../../public/maya.png";
 const menuItems = [
   { label: "About", route: "/about" },
   { label: "Projects", route: "/projects" },
-  { label: "Resume", route: "https://drive.google.com/file/d/18BHBNqn-fjilZcuHM7Obgm74d7OW58ZP/view?usp=sharing" },
+  { label: "Resume", route: "https://drive.google.com/file/d/1uX2sPu1teBoz6l9Asr74Lh-WphUbGefx/view?usp=sharing" },
   { label: "Contact", route: "/contact" },
 ];
 

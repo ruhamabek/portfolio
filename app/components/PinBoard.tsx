@@ -85,12 +85,19 @@ const scatteredLayouts: Record<number, { left: number; top: number; rot: number;
     { left: 36, top: 30, rot: 2.5, w: 280 },
     { left: 66, top: 3, rot: -1.5, w: 280 },
   ],
+  4: [
+    { left: 5, top: 12, rot: -4, w: 280 },
+    { left: 30, top: 45, rot: 2.5, w: 280 },
+    { left: 57, top: 12, rot: -1.5, w: 280 },
+    { left: 84, top: 45, rot: 2, w: 280 },
+  ],
 };
 
 /* Which pins connect to which */
 const connectionOrder: Record<number, [number, number][]> = {
   2: [[0, 1]],
   3: [[0, 1], [1, 2], [0, 2]],
+  4: [[0, 1], [1, 2], [2, 3], [0, 2], [1, 3]],
 };
 
 /* Generate a droopy catenary path between two pin centers */
